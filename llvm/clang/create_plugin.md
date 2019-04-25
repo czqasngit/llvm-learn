@@ -126,6 +126,7 @@ XTPlugin.dylib -Xclang -add-plugin -Xclang XTPlugin
 ![](https://ws4.sinaimg.cn/large/006tNc79gy1g2f00k0fasj30zy026dg4.jpg)
 
 配置的`clang`&`clang++`就是我们llvm-release目录中bin的两个替身,他们的真身都是`clang-9`
+这样编译的时候会使用我们提供的编译器
 ![](https://ws3.sinaimg.cn/large/006tNc79gy1g2f0e19v3hj30me01gdfu.jpg)
 
 Enable Index-While-Building Functionality设置为N0

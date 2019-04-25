@@ -21,7 +21,7 @@ brew install cmake
 ```
 
 ### 安装ninja
-- Ninja是一个专注于速度的小型构建系统
+- Ninja是一个专注于构建速度的小型构建系统
     
 ```
 brew install ninja

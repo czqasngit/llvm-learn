@@ -118,12 +118,16 @@ XTPlugin.dylib -Xclang -add-plugin -Xclang XTPlugin
 
 接下来配置clang编译器
 ![](https://ws4.sinaimg.cn/large/006tNc79gy1g2ezz27ajlj30m001g0sr.jpg)
+
 在`Build Settings`的tool bar上面点击+按钮
 ![](https://ws1.sinaimg.cn/large/006tNc79gy1g2ezzrslwfj30bm0243z2.jpg)
+
 添加User-Defined Setting
 ![](https://ws4.sinaimg.cn/large/006tNc79gy1g2f00k0fasj30zy026dg4.jpg)
+
 配置的`clang`&`clang++`就是我们llvm-release目录中bin的两个替身,他们的真身都是`clang-9`
 ![](https://ws3.sinaimg.cn/large/006tNc79gy1g2f0e19v3hj30me01gdfu.jpg)
+
 Enable Index-While-Building Functionality设置为N0
 Xcode 9+需要这样设置 
 到此,编译一下测试工程,如果没有报错就表示编写的插件被正常加载了

@@ -33,9 +33,10 @@ add_clang_subdirectory(xt-plugin)
 创建CMakeLists.txt文件,并添加如下代码
 
 ```
-// add_llvm_library定义在llvm/cmake/modules/AddLLVM.cmake
-// function(llvm_add_library name)
-// MODULE 插件编译的源码
+// add_llvm_library定义在llvm/cmake/modules/AddLLVM.cmake中
+// macro(add_llvm_library name) 最终调用 function(llvm_add_library name)
+// MODULE 会在内部添加插件名称与插件的具体实现代码
+// 实现: add_library(${name} MODULE ${ALL_FILES})
 // PLUGIN_TOOL The tool (i.e. cmake target) that this plugin will link against
 // 插件要连接的cmake目标
 add_llvm_library(XTPlugin MODULE XTPlugin.cpp PLUGIN_TOOL clang)
@@ -63,7 +64,7 @@ cmake -G Xcode ../llvm
 ### 编译XTPlugin.cpp插件 [参考](https://clang.llvm.org/docs/ClangPlugins.html)
 `Clang Plugins make it possible to run extra user defined actions during a compilation` 
 
-1.缩写PluginASTAction,从下图定义可以看出,继承后需要实现两个方法
+1.编写PluginASTAction,从下图定义可以看出,继承后需要实现两个方法
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1g2exi8tarsj313u0u0n6b.jpg)
 
 ```

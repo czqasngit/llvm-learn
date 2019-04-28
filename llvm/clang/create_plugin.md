@@ -18,6 +18,8 @@
         - 改变代码: 基础clang生成的代码(IR)进行修改,也可以转换成其它语言
         - 语法检查: 由于可以访问完整的AST功能,所以可以进行语法、主意的检查
         - 分析&修改: 对源码做任何分析,增加删除代码,重写代码
+
+##### AST详细解读请查看 [Clang之语法抽象语法树AST](https://www.cnblogs.com/zhangke007/p/4714245.html)
         
 ### 开始编写第一个clang plugin
 - 进入到`llvm/tools/clang/examples`目录(clang提供的样例代码就在这里,我们也可以把插件放在其它目录,只要在上级CMakeLists.txt中注册就可以了)
@@ -228,6 +230,7 @@ namespace XTPlugin {
     /// 编写继承至PluginASTAction的插件
     class XTPluginASTAction: public PluginASTAction {
         /// 创建并返回消费者
+        /// 在Compile之前，创建ASTConsumer。在建立AST的过程中，ASTConsumer提供了众多的Hooks
         std::unique_ptr<ASTConsumer> CreateASTConsumer(CompilerInstance &CI,
                                                        StringRef InFile) {
             return std::unique_ptr<XTASTConsumer>(new XTASTConsumer(CI));

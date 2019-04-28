@@ -135,6 +135,19 @@ Xcode 9+需要这样设置
 到此,编译一下测试工程,如果没有报错就表示编写的插件被正常加载了
 接下来就是编写插件逻辑代码了
 
+通过如下命令查看clang生成的AST信息
+
+```
+clang -Xclang -ast-dump -fsyntax-only ViewController.m
+```
+
+生成一个编译单元
+![](https://ws2.sinaimg.cn/large/006tNc79gy1g2i2t7f6ukj316g01qwet.jpg)
+
+从AST信息中可以得到完整的节点信息,我们想操作哪些节点都可以
+
+![](https://ws2.sinaimg.cn/large/006tNc79gy1g2i2v1gwn0j31h606wmze.jpg)
+
 ```
 
 #include "clang/Frontend/FrontendPluginRegistry.h"

@@ -9,6 +9,7 @@
 ### LLVM Project
   - LLVM 基本信息 [**查看**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/llvm.md)
   - LLVM 与 Clang 编译 [**查看编译精简过程**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/compile.md)
+  - Clang插件开发过程详解,源码及详细注释 [**查看**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/clang/create_plugin.md)
 
 
 

@@ -1,8 +1,8 @@
-# iOS高级精简详解
+## iOS高级精简详解
+![](https://ws3.sinaimg.cn/large/006tNc79gy1g2j8a0ij5kj31jk0dwkjl.jpg)
 
 ### objc_msgSend hook 
-学习objc_msgSend过程的记录以及一个精简且完整的hook核心功能,并且还有详细注释
-[**查看源码**](https://github.com/czqasngit/objc_msgSend_hook)
+[**objc_msgSend hook精简详解,完整核心功能代码,完整注释**](https://github.com/czqasngit/objc_msgSend_hook)
 
 
   

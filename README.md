@@ -1,15 +1,14 @@
-# iOS高级精简详解
+![](https://ws1.sinaimg.cn/large/006tNc79gy1g2j8jrd3yoj31jk0dw1kx.jpg)
 
 ### objc_msgSend hook 
-学习objc_msgSend过程的记录以及一个精简且完整的hook核心功能,并且还有详细注释
-[**查看源码**](https://github.com/czqasngit/objc_msgSend_hook)
+[**objc_msgSend hook精简详解,完整核心功能代码,完整注释**](https://github.com/czqasngit/objc_msgSend_hook)
 
 
   
-### LLVM Project
-  - LLVM 基本信息 [**查看**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/llvm.md)
-  - LLVM 与 Clang 编译 [**查看编译精简过程**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/compile.md)
-  - Clang插件开发过程详解,源码及详细注释 [**查看**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/clang/create_plugin.md)
+### *LLVM & Clang*
+  - [**LLVM Base Information**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/llvm.md)
+  - [**LLVM & Clang Compile**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/compile.md)
+  - [**Create Clang Plugin**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/clang/create_plugin.md)
 
 
 

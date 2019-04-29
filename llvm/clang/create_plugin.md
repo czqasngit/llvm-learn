@@ -1,5 +1,7 @@
 # [精简详解]编写clang的插件并集成到Xcode
 
+![](https://ws3.sinaimg.cn/large/006tNc79gy1g2j8qg918ej31jk0dw1kx.jpg)
+
 ### clang三大工具
 - libClang
     - 稳定的C API,提供了AST较为基础的访问能力

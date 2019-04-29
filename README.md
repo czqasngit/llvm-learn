@@ -7,8 +7,9 @@
 
   
 ### *LLVM & Clang*
-  - LLVM 基本信息 [**查看**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/llvm.md)
-  - LLVM 与 Clang 编译 [**查看编译精简过程**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/compile.md)
+  - [**LLVM Base Information**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/llvm.md)
+  - [**LLVM & Clang Compile**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/compile.md)
+  - [**Create Clang Plugin**](https://github.com/czqasngit/iOS_senior/blob/master/llvm/clang/create_plugin.md)
 
 
 

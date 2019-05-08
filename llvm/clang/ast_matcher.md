@@ -1,4 +1,4 @@
-## clang plugin using AST Matcher
+## Create clang plugin using AST Matcher
 
 ```
 #include "clang/Frontend/FrontendPluginRegistry.h"

@@ -17,18 +17,21 @@ using namespace std;
 namespace TIM {
     
     /// 继承RecursiveASTVisitor
+    /// 递归访问AST
+    /// 1.当调用Traverse(Decl/Stmt/Type/Function)时进行,
+    /// 这是切入点用于遍历以传入节点为根节点的AST
+    /// 分发调用WalkUpFrom(Foo),然后再遍历子节点
+    /// 2.WalkUpFrom(Bar)首先调用,其中Bar是Foo的直接父类,除非Foo没有父类
+    /// 3.最后调用VisitFoo
+    /// 注: 在这个例子中,我们调用visit.TraverseDecl(decl)
+    ///     通过VisitObjCImplDecl得到对应ObjCImplDecl(ObjCImplementationDecl)的回调
+    ///     bool VisitObjCImplDecl(ObjCImplDecl *decl)在对应的实现方法中判断我们的逻辑
     class TIMRecursiveASTVisitor: public RecursiveASTVisitor<TIMRecursiveASTVisitor> {
     private:
         CompilerInstance &ci;
     public:
         TIMRecursiveASTVisitor(CompilerInstance &ci): ci(ci) {
             
-        }
-        bool VisitorObjCImplementationDecl(ObjCImplementationDecl *decl) {
-            DiagnosticsEngine &D = ci.getDiagnostics();
-            DiagnosticBuilder builder = D.Report(D.getCustomDiagID(DiagnosticsEngine::Warning, "---ObjCImplementationDecl: %0"));
-            builder.AddString(decl->getName());
-            return true;
         }
         bool VisitObjCImplDecl(ObjCImplDecl *decl) {
             //            cout << "ObjCImplDecl: " << decl->getName().data() << endl;
@@ -37,6 +40,13 @@ namespace TIM {
             builder.AddString(decl->getName());
             return true;
         }
+        bool VisitFunctionDecl(FunctionDecl *decl) {
+            DiagnosticsEngine &D = ci.getDiagnostics();
+            DiagnosticBuilder builder = D.Report(D.getCustomDiagID(DiagnosticsEngine::Warning, "---FunctionDecl: %0"));
+            builder.AddString(decl->getName());
+            return true;
+        }
+        
     };
     class TIMASTConsumer: public ASTConsumer {
     private:
@@ -51,6 +61,9 @@ namespace TIM {
                 visitor.TraverseDecl(decl);
             }
             return true;
+        }
+        void HandleInlineFunctionDefinition(FunctionDecl *D) {
+            visitor.TraverseFunctionDecl(D);
         }
     };
     class TIMASTPluginAction: public PluginASTAction {

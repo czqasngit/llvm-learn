@@ -153,5 +153,23 @@ clang -Xclang -ast-dump -fsyntax-only ViewController.m
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1g2i2v1gwn0j31h606wmze.jpg)
 
 
-## [clang plugin using matcher](https://github.com/czqasngit/iOS_senior/blob/master/llvm/clang/ast_matcher.md)
+### [Create clang plugin using matcher](https://github.com/czqasngit/iOS_senior/blob/master/llvm/clang/ast_matcher.md)
+### [Create clang plugin using visit](https://github.com/czqasngit/iOS_senior/blob/master/llvm/clang/ast_visit.md)
+plugin与tooling是可以相互转换使用的
+
+```
+add_llvm_library(VisitPlugin MODULE VisitPlugin.cpp PLUGIN_TOOL clang
+
+```
+
+将上面的cmake代码替换成
+
+```
+add_clang_executable(VisitPlugin VisitPlugin.cpp)
+target_link_libraries(VisitPlugin clangTooling)
+```
+
+重新生成 `llvm-xcode`程,就可以在`lang executables`目录下面找到对应的`clang tooling`
+
+### [Create clang tooling using visit](https://github.com/czqasngit/iOS_senior/blob/master/llvm/clang/ast_visit_tooling.md)
 
